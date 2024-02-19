@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
+
+
 export const ContainerItens = styled.div`
     padding: 30px 60px;
     background: #F0F0F0;
     
 `
-
 
 export const Links = styled.div`
     display: flex;
@@ -15,18 +16,26 @@ export const Links = styled.div`
 
 
 `
+
 export const Menu = styled.li`
+
     display: inline-block;
     margin-right: 30px;
     text-decoration: none;
     background: #F0F0F0;
+
+
 `
+
 export const ContainerLinks = styled.div`
+
     display: flex;
     gap: 15px;
     margin-right: 30px;
 `
+
 export const Imagens = styled.img`
+
     width: 30px;
 `
 
@@ -38,18 +47,20 @@ export const Home = styled.header`
     /* margin-bottom: px ; */
     
 `
-export const Div = styled.div`
-    
-`
+
+export const Div = styled.div``
 
 export const H3 = styled.h3`
+
     color: #024AAC;
     font-size: 20px;
     line-height: 1;
     margin-bottom: 10px;
     
 `
+
 export const H1 = styled.h1`
+
     color: #024AAC;
     font-size: 80px;
     font-weight: bold;
@@ -57,11 +68,13 @@ export const H1 = styled.h1`
     margin-top: 0;
     margin-bottom: 5px;
 `
+
 export const Paragrafo = styled.p`
     width: 410px;
     margin-bottom: 30px;
     
 `
+
 export const Button = styled.button`
     width: 220px;
     height: 60px;
@@ -82,8 +95,6 @@ export const Button = styled.button`
 
 
 `
-
-
 export const About = styled.section`
     display: flex;
     justify-content: center;
@@ -92,12 +103,14 @@ export const About = styled.section`
     gap: 100px;
     margin-top: 60px;
 `
+
 export const H2 = styled.h2`
 
     color: #024AAC;
     font-size: 50px;
 
 `
+
 export const Tech = styled.section`
     display:flex;
     flex-direction: column;
@@ -107,6 +120,7 @@ export const Tech = styled.section`
     margin-top: 60px;
     
 `
+
 export const Certificate = styled.section`
 
     display: flex;
@@ -122,6 +136,7 @@ export const Certificate = styled.section`
         margin-bottom: 10px;
     }
 `
+
 export const Portfolio = styled.section`
 
     display: flex;
@@ -140,24 +155,37 @@ export const Portfolio = styled.section`
         margin-bottom: 10px;
     }
 `
+
 export const Contact = styled.footer`
     display: flex;
     flex-direction: column;
-   
- 
+    background: #024AAC;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    div{
+
+        margin-left: 60px;
+    }
+
     h2{
-        color: #024AAC;
+        color: #F0F0F0;
         font-size: 50px;
     }
+
     p{
-        color: #024AAC;
+        display: inline-block;
+        color: #F0F0F0;
     }
+
     a{
         text-decoration: none;
     }
+
     img{
         width: 25px;
         margin-top: 18px;
+        margin-right: 10px;
     }
 `
 

@@ -1,23 +1,6 @@
-import React, {useRef} from "react";
-import {
-  ContainerItens,
-  Div,
-  Links,
-  Menu,
-  ContainerLinks,
-  Home,
-  H3,
-  H1,
-  Paragrafo,
-  Button,
-  About,
-  H2,
-  Tech,
-  Certificate,
-  Portfolio,
-  Contact,
-  Imagens
-} from "./style/style.js";
+import React, {useRef, useLayoutEffect} from "react";
+import { ContainerItens, Div, Links, Menu, ContainerLinks, Home, H3, H1, Paragrafo, Button, 
+  About, H2, Tech, Certificate, Portfolio, Contact,Imagens} from "./style/style.js";
 import Link from "./components/links/links.js";
 import Img from "./components/img/Img.js";
 import github from "./assets/icones/github.svg";
@@ -30,6 +13,8 @@ import logoMongoDB from "./assets/tecnologias/mongodb.png";
 import logoDocker from "./assets/tecnologias/docker.png";
 import Email from "./assets/icones/envelope-at-fill.svg";
 import WhatsApp from "./assets/icones/whatsapp.svg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
 
@@ -37,16 +22,39 @@ import WhatsApp from "./assets/icones/whatsapp.svg";
 
 
 function App() {
-const refContact = useRef(null);
+  const refContact = useRef(null);
+  const el = useRef()
+  const tl = useRef()
 
-const goToContact = () => {
-  refContact.current.scrollIntoView({ behavior: 'smooth' });
-};
+  useLayoutEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger)
+
+    const ctx = gsap.context(()=>{
+
+      tl.current = gsap.timeline({
+        scrollTrigger:{
+          trigger:".models-item",
+          scrub:true,
+          // markers: true
+        }
+      })
+      
+    })
+
+    return() =>{
+      gsap.killTweensOf('.models-item')
+    }
+  },[])
+
+
+  const goToContact = () => {
+    refContact.current.scrollIntoView({ behavior: 'smooth' });
+  };
   
   return (
     <>
       <ContainerItens>
-        <Links>
+        <Links ref={el}>
           <ul>
             <Menu>
               <Link link="#home" texto="Inicio"></Link>
@@ -70,7 +78,7 @@ const goToContact = () => {
           </ContainerLinks>
         </Links>
 
-        <Home id="home">
+        <Home id="home" ref={el}>
           <Div>
           <H3>Olá!</H3>
             <H1>
@@ -93,7 +101,7 @@ const goToContact = () => {
           </Div>
         </Home>
 
-        <About id="about">
+        <About id="about" ref={el}>
           <Div>
             <Img src={Perfil} alt="Vinicius Rivaldar" />
           </Div>
@@ -125,7 +133,7 @@ const goToContact = () => {
             <img src={logoDocker} alt="Docker" width={225}/>
           </Div>
         </Tech>
-        <Certificate id="cetificate">
+        <Certificate id="cetificate"ref={el}>
           <div>
             <H2>Certificados</H2>
           </div>
@@ -138,7 +146,7 @@ const goToContact = () => {
           </div>
         </Certificate>
 
-        <Portfolio id="portifolio">
+        <Portfolio id="portifolio" ref={el}>
 
         <div>
           <H2>Portifólio</H2>
@@ -150,19 +158,18 @@ const goToContact = () => {
           <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>
         </div>
         </Portfolio>
-
-        <Contact id="contact" ref={refContact}>
+      </ContainerItens>
+      <Contact id="contact" ref={[refContact, el]}>
           <div>
             <h2>Contatos</h2>
           </div>
           <div>
-            <img src={Email} alt="email"  /><p>Vinicius-rivaldar@outlook.com</p>
-            <img src={WhatsApp} alt="WhatsApp"/><Paragrafo> 073 9 8124-6136 </Paragrafo>
-            <a href="https://www.linkedin.com/in/viniciusrivaldar" target="_blank" rel="noreferrer"><img src={linkedin} alt="linkedin" /><Paragrafo> Vinicius Rivaldar</Paragrafo></a>
-            <a href="https://github.com/ViniRivaldar" target="_blank" rel="noreferrer"><img src={github} alt="github" /><Paragrafo>Vinicius Rivaldar</Paragrafo></a>
+            <img src={Email} alt="email"  /><p>Vinicius-rivaldar@outlook.com</p><br/>
+            <img src={WhatsApp} alt="WhatsApp"/><p> 073 9 8124-6136 </p><br/>
+            <a href="https://www.linkedin.com/in/viniciusrivaldar" target="_blank" rel="noreferrer"><img src={linkedin} alt="linkedin" /><p> Vinicius Rivaldar</p></a><br/>
+            <a href="https://github.com/ViniRivaldar" target="_blank" rel="noreferrer"><img src={github} alt="github" /><p>Vinicius Rivaldar</p></a>
           </div>
-        </Contact>
-      </ContainerItens>
+      </Contact>
     </>
   );
 }

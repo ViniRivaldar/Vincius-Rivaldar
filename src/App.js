@@ -13,8 +13,8 @@ import logoMongoDB from "./assets/tecnologias/mongodb.png";
 import logoDocker from "./assets/tecnologias/docker.png";
 import Email from "./assets/icones/envelope-at-fill.svg";
 import WhatsApp from "./assets/icones/whatsapp.svg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ScrollReveal from "scrollreveal";
+
 
 
 
@@ -23,66 +23,40 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function App() {
   const refContact = useRef(null);
- 
-
-  useLayoutEffect(()=>{
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to('#home',{
-      x:0,
-      opacity:1,
-      scrollTrigger:{
-        trigger: ".home",
-      }
-    })
-  
-
-    return() =>{
-      gsap.killTweensOf('#home')
-    }
-  },[])
-
-  useLayoutEffect(()=>{
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to('#about',{
-      x:0,
-      opacity:1,
-      scrollTrigger:{
-        trigger: ".about",
-        start: 'top 978',
-        end: 'bottom 594',
-        scrub: true
-      }
-    })
-  
-
-    return() =>{
-      gsap.killTweensOf('#about')
-    }
-  },[])
-
-  useLayoutEffect(()=>{
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to('#tech',{
-      x:0,
-      opacity:1,
-      scrollTrigger:{
-        trigger: "#tech",
-        start: 'top 978',
-        end: 'bottom 594',
-        scrub: true
-      }
-    })
-  
-
-    return() =>{
-      gsap.killTweensOf('#tech')
-    }
-  },[])
-
   const goToContact = () => {
     refContact.current.scrollIntoView({ behavior: 'smooth' });
   };
   
+  useLayoutEffect(()=>{
+
+    const revelar = ScrollReveal({
+      reset: true
+    })
+    revelar.reveal('.efeito-text',{
+      duration: 2000,
+      distance: '90px'
+    }) 
+    revelar.reveal('.efeito-img',{
+      duration: 2000,
+      distance: '90px',
+      delay: 500
+    })
+    revelar.reveal('.titulo',{
+      duration: 2000,
+      distance: '90px'
+    })
+    revelar.reveal('.efeito-img-about',{
+      duration: 2000,
+      distance: '90px',
+      origin: 'left'
+    })
+    revelar.reveal('.efeito-text-about',{
+      duration: 2000,
+      distance: '90px',
+      origin: 'rigth'
+    })
+  },[])
+
   return (
     <>
       <ContainerItens>
@@ -111,7 +85,7 @@ function App() {
         </Links>
 
         <Home id="home" >
-          <Div className="home">
+          <Div className="efeito-text">
           <H3>Olá!</H3>
             <H1>
               Eu sou <br />
@@ -128,17 +102,17 @@ function App() {
             <Button onClick={goToContact}>Contato</Button>
           </Div>
 
-          <Div className="home">
+          <div className="efeito-img">
           <Img src={Perfil} alt="Vinicius Rivaldar" />
-          </Div>
+          </div>
         </Home>
 
         <About id="about" >
-          <Div className="about">
+          <div className="efeito-img-about">
             <Img src={Perfil} alt="Vinicius Rivaldar" />
-          </Div>
+          </div>
 
-          <Div className="about">
+          <div className="efeito-text-about">
             <H2>SOBRE MIM</H2>
             <H3>Vinicius Rivaldar</H3>
             <Paragrafo>
@@ -151,44 +125,46 @@ function App() {
               ingressar como desenvolvedor fullstack e contribuir efetivamente nas
               empresas que me acolherem.
             </Paragrafo>
-          </Div>
+          </div>
         </About>
         <Tech id="tech">
-          <Div className="tech-1">
+          <Div className="titulo">
             <H2>PRINCIPAIS TECNOLOGIAS</H2>
           </Div>
-          <Div className="tech-2">
+          <Div className="efeito-img-about">
+            <div>
             <img src={logoReact} alt="reactJS" width={225}/>
             <img src={logoBootstrap} alt="bootstrap" width={225}/>
             <img src={logoNode} alt="NodeJS" width={225}/>
             <img src={logoMongoDB} alt="mongodb" width={225}/>
             <img src={logoDocker} alt="Docker" width={225}/>
+            </div>
+            
           </Div>
         </Tech>
         <Certificate id="cetificate">
-          <div>
+          
+          <div className="titulo">
             <H2>Certificados</H2>
           </div>
+          <div className="acordion">
+            <img className="text" src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194"alt="certificado1" width={1000}/><br/>
+            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95" alt="certificado2"width={1000}/><br/>
+            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b" alt="certificado3"width={1000}/><br/>
+            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>   
+          </div>   
+        </Certificate>
+
+        <Portfolio id="portifolio" >
+          <div className="titulo">
+            <h2>Portifólio</h2>
+          </div> 
           <div>
             <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194"alt="certificado1" width={1000}/><br/>
             <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95" alt="certificado2"width={1000}/><br/>
             <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b" alt="certificado3"width={1000}/><br/>
             <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>
-            
           </div>
-        </Certificate>
-
-        <Portfolio id="portifolio" >
-
-        <div>
-          <H2>Portifólio</H2>
-        </div>
-        <div>
-          <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194"alt="certificado1" width={1000}/><br/>
-          <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95" alt="certificado2"width={1000}/><br/>
-          <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b" alt="certificado3"width={1000}/><br/>
-          <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>
-        </div>
         </Portfolio>
       </ContainerItens>
       <Contact id="contact" ref={refContact}>

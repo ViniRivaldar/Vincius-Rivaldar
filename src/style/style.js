@@ -42,11 +42,30 @@ export const Home = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 60px ;
-    transform: translatex(-200px);
-    opacity: 0;
-    
+    margin-top: 60px ;  
+    img{
+        position: relative;
+        animation: flutuar 2s ease-in-out infinite alternate;
+       
+
+    }  
+
+    @keyframes flutuar{
+        0%{
+            top: 0;
+        }
+        100%{
+            top:30px;
+        }
+    }
+    .efeito-text{
+        visibility: hidden;
+    }
+    .efeito-img{
+        visibility: hidden;
+    }
 `
+
 
 export const Div = styled.div``
 
@@ -84,9 +103,11 @@ export const Button = styled.button`
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.90);
     font-size: 20px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 
     &:hover{
         opacity: 0.8;
+        transform: scale(1.2);
     }
 
     &:active{
@@ -102,8 +123,14 @@ export const About = styled.section`
     flex-wrap: wrap;
     gap: 100px;
     margin-top: 60px;
-    transform: translatex(200px);
-    opacity: 0;
+
+    
+    .efeito-text-about{
+        visibility: hidden;
+    }
+    .efeito-img-about{
+        visibility: hidden;
+    }
 `
 
 export const H2 = styled.h2`
@@ -120,9 +147,12 @@ export const Tech = styled.section`
     align-items: center;
     gap: 30px;
     margin-top: 60px;
-    transform: translatex(-200px);
-    opacity: 0;
-    
+   .titulo{
+    visibility: hidden;
+   }
+   .efeito-img-about{
+        visibility: hidden;
+    }
 `
 
 export const Certificate = styled.section`
@@ -131,6 +161,7 @@ export const Certificate = styled.section`
     flex-direction: column;
     align-items: center;
     margin-top: 70px;
+   
     div{
         margin-top: 10px;
     }
@@ -139,6 +170,9 @@ export const Certificate = styled.section`
         margin-top: 10px;
         margin-bottom: 10px;
     }
+    .titulo{
+    visibility: hidden;
+   }
 `
 
 export const Portfolio = styled.section`
@@ -149,17 +183,26 @@ export const Portfolio = styled.section`
     justify-content: center;
     gap: 30px;
     margin-top: 60px;
+   
     div{
         margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    h2{
+        
+        color: #024AAC;
+        font-size: 50px;
     }
     img{
 
         width:800px;
-        
         margin-bottom: 10px;
     }
+    .titulo{
+        visibility: hidden;
+    }
 `
-
 export const Contact = styled.footer`
     display: flex;
     flex-direction: column;

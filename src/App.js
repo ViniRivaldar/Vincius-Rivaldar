@@ -23,29 +23,61 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function App() {
   const refContact = useRef(null);
-  const el = useRef()
-  const tl = useRef()
+ 
 
   useLayoutEffect(()=>{
     gsap.registerPlugin(ScrollTrigger)
-
-    const ctx = gsap.context(()=>{
-
-      tl.current = gsap.timeline({
-        scrollTrigger:{
-          trigger:".models-item",
-          scrub:true,
-          // markers: true
-        }
-      })
-      
+    gsap.to('#home',{
+      x:0,
+      opacity:1,
+      scrollTrigger:{
+        trigger: ".home",
+      }
     })
+  
 
     return() =>{
-      gsap.killTweensOf('.models-item')
+      gsap.killTweensOf('#home')
     }
   },[])
 
+  useLayoutEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.to('#about',{
+      x:0,
+      opacity:1,
+      scrollTrigger:{
+        trigger: ".about",
+        start: 'top 978',
+        end: 'bottom 594',
+        scrub: true
+      }
+    })
+  
+
+    return() =>{
+      gsap.killTweensOf('#about')
+    }
+  },[])
+
+  useLayoutEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.to('#tech',{
+      x:0,
+      opacity:1,
+      scrollTrigger:{
+        trigger: "#tech",
+        start: 'top 978',
+        end: 'bottom 594',
+        scrub: true
+      }
+    })
+  
+
+    return() =>{
+      gsap.killTweensOf('#tech')
+    }
+  },[])
 
   const goToContact = () => {
     refContact.current.scrollIntoView({ behavior: 'smooth' });
@@ -54,7 +86,7 @@ function App() {
   return (
     <>
       <ContainerItens>
-        <Links ref={el}>
+        <Links >
           <ul>
             <Menu>
               <Link link="#home" texto="Inicio"></Link>
@@ -78,8 +110,8 @@ function App() {
           </ContainerLinks>
         </Links>
 
-        <Home id="home" ref={el}>
-          <Div>
+        <Home id="home" >
+          <Div className="home">
           <H3>Olá!</H3>
             <H1>
               Eu sou <br />
@@ -96,17 +128,17 @@ function App() {
             <Button onClick={goToContact}>Contato</Button>
           </Div>
 
-          <Div>
+          <Div className="home">
           <Img src={Perfil} alt="Vinicius Rivaldar" />
           </Div>
         </Home>
 
-        <About id="about" ref={el}>
-          <Div>
+        <About id="about" >
+          <Div className="about">
             <Img src={Perfil} alt="Vinicius Rivaldar" />
           </Div>
 
-          <Div>
+          <Div className="about">
             <H2>SOBRE MIM</H2>
             <H3>Vinicius Rivaldar</H3>
             <Paragrafo>
@@ -121,11 +153,11 @@ function App() {
             </Paragrafo>
           </Div>
         </About>
-        <Tech>
-          <Div>
+        <Tech id="tech">
+          <Div className="tech-1">
             <H2>PRINCIPAIS TECNOLOGIAS</H2>
           </Div>
-          <Div>
+          <Div className="tech-2">
             <img src={logoReact} alt="reactJS" width={225}/>
             <img src={logoBootstrap} alt="bootstrap" width={225}/>
             <img src={logoNode} alt="NodeJS" width={225}/>
@@ -133,7 +165,7 @@ function App() {
             <img src={logoDocker} alt="Docker" width={225}/>
           </Div>
         </Tech>
-        <Certificate id="cetificate"ref={el}>
+        <Certificate id="cetificate">
           <div>
             <H2>Certificados</H2>
           </div>
@@ -146,7 +178,7 @@ function App() {
           </div>
         </Certificate>
 
-        <Portfolio id="portifolio" ref={el}>
+        <Portfolio id="portifolio" >
 
         <div>
           <H2>Portifólio</H2>
@@ -159,7 +191,7 @@ function App() {
         </div>
         </Portfolio>
       </ContainerItens>
-      <Contact id="contact" ref={[refContact, el]}>
+      <Contact id="contact" ref={refContact}>
           <div>
             <h2>Contatos</h2>
           </div>

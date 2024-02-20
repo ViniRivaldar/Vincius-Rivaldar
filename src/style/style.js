@@ -24,7 +24,6 @@ export const Menu = styled.li`
     text-decoration: none;
     background: #F0F0F0;
 
-
 `
 
 export const ContainerLinks = styled.div`
@@ -44,7 +43,8 @@ export const Home = styled.header`
     align-items: center;
     justify-content: space-around;
     margin-top: 60px ;
-    /* margin-bottom: px ; */
+    transform: translatex(-200px);
+    opacity: 0;
     
 `
 
@@ -102,6 +102,8 @@ export const About = styled.section`
     flex-wrap: wrap;
     gap: 100px;
     margin-top: 60px;
+    transform: translatex(200px);
+    opacity: 0;
 `
 
 export const H2 = styled.h2`
@@ -118,6 +120,8 @@ export const Tech = styled.section`
     align-items: center;
     gap: 30px;
     margin-top: 60px;
+    transform: translatex(-200px);
+    opacity: 0;
     
 `
 

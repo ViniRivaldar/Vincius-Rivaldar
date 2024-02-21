@@ -165,11 +165,10 @@ export const Certificate = styled.section`
     div{
         margin-top: 10px;
     }
-    img{
-        width:800px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+   .slide-item{
+        
+
+   }
     .titulo{
     visibility: hidden;
    }
@@ -194,11 +193,7 @@ export const Portfolio = styled.section`
         color: #024AAC;
         font-size: 50px;
     }
-    img{
 
-        width:800px;
-        margin-bottom: 10px;
-    }
     .titulo{
         visibility: hidden;
     }

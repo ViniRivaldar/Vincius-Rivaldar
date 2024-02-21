@@ -14,6 +14,7 @@ import logoDocker from "./assets/tecnologias/docker.png";
 import Email from "./assets/icones/envelope-at-fill.svg";
 import WhatsApp from "./assets/icones/whatsapp.svg";
 import ScrollReveal from "scrollreveal";
+import{ Swiper, SwiperSlide} from 'swiper/react'
 
 
 
@@ -26,6 +27,14 @@ function App() {
   const goToContact = () => {
     refContact.current.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const imagem = [
+    {id:'1',img:"https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194" },
+    {id:'2', img:"https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95"},
+    {id:'3', img:"https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b"},
+    {id:'4',img:"https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc"}
+    
+  ]
   
   useLayoutEffect(()=>{
 
@@ -55,6 +64,8 @@ function App() {
       distance: '90px',
       origin: 'rigth'
     })
+
+    
   },[])
 
   return (
@@ -147,12 +158,24 @@ function App() {
           <div className="titulo">
             <H2>Certificados</H2>
           </div>
-          <div className="acordion">
-            <img className="text" src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194"alt="certificado1" width={1000}/><br/>
-            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95" alt="certificado2"width={1000}/><br/>
-            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b" alt="certificado3"width={1000}/><br/>
-            <img className="text"src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>   
-          </div>   
+          <div>
+          <Swiper
+          slidesPerView={1}
+          pagination={{clickable: true}}
+          navigation
+          style={{ width: '700px' }}
+          >
+            {imagem.map((item)=>(
+              <SwiperSlide key={item.id}>
+                <img 
+                src={item.img}
+                alt='slide'
+                className="slide-item" width={700}/>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          </div>
+             
         </Certificate>
 
         <Portfolio id="portifolio" >

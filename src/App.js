@@ -1,4 +1,4 @@
-import React, {useRef, useLayoutEffect} from "react";
+import React, {useRef, useLayoutEffect, useState, useEffect} from "react";
 import { ContainerItens, Div, Links, Menu, ContainerLinks, Home, H3, H1, Paragrafo, Button, 
   About, H2, Tech, Certificate, Portfolio, Contact,Imagens} from "./style/style.js";
 import Link from "./components/links/links.js";
@@ -15,6 +15,7 @@ import Email from "./assets/icones/envelope-at-fill.svg";
 import WhatsApp from "./assets/icones/whatsapp.svg";
 import ScrollReveal from "scrollreveal";
 import{ Swiper, SwiperSlide} from 'swiper/react'
+import axios from "axios";
 
 
 
@@ -24,6 +25,7 @@ import{ Swiper, SwiperSlide} from 'swiper/react'
 
 function App() {
   const refContact = useRef(null);
+  const [data, setData] = useState([]);
   const goToContact = () => {
     refContact.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -67,6 +69,23 @@ function App() {
 
     
   },[])
+
+  
+
+  async function Data() {
+    try {
+      const response = await axios.get(process.env.REACT_APP_API_KEY);
+      setData(response.data.projetos); 
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  }
+  
+
+ useEffect(()=>{
+    Data();
+ },[]) 
+
 
   return (
     <>
@@ -182,11 +201,16 @@ function App() {
           <div className="titulo">
             <h2>Portifólio</h2>
           </div> 
-          <div>
-            <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-2.png?alt=media&token=0e395750-26d6-4824-869f-b41e46c2d194"alt="certificado1" width={1000}/><br/>
-            <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-3.png?alt=media&token=b6f72d89-e2f1-4057-8d5e-b89536b90f95" alt="certificado2"width={1000}/><br/>
-            <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-5.png?alt=media&token=c1ed6978-2940-4cc7-a69d-36a482594e0b" alt="certificado3"width={1000}/><br/>
-            <img src="https://firebasestorage.googleapis.com/v0/b/portifolio-8ef87.appspot.com/o/certificado-32.png?alt=media&token=5c035794-b892-49ba-aeb7-2d12921a4ffc" alt="certificado4"width={1000}/><br/>
+          <div className="projetos">
+            {data.map((projeto)=>(
+              <div key={projeto._id} className="projetos-card">
+                <video src={projeto.video} controls ></video>
+                <h4>{projeto.titulo}</h4>
+                <p>{projeto.descricao}</p>
+                <a href={projeto.urlDoSite}>Site</a><br/>
+                <a href={projeto.urlDoRepositorio}>Repositório</a>
+              </div>
+            ))}
           </div>
         </Portfolio>
       </ContainerItens>

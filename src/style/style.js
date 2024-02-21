@@ -175,29 +175,51 @@ export const Certificate = styled.section`
 `
 
 export const Portfolio = styled.section`
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
     margin-top: 60px;
+    margin-bottom: 60px;
    
-    div{
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
+    .titulo {
+        text-align: center; 
+        margin-bottom:60px;
     }
-    h2{
-        
+    
+    h2 {
         color: #024AAC;
         font-size: 50px;
     }
 
-    .titulo{
-        visibility: hidden;
+    .projetos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 40px;
+        padding: 30px;
+        border-radius: 15px;
+        background: #E0E0E0;
     }
+
+    .projetos-card{
+        padding: 10px;
+        background: #ffff;
+        border-radius: 5px;
+        
+    }
+    h4{
+        color: #024AAC;
+        font-size: 20px
+    }
+    a{
+        text-decoration: none;
+        
+    }
+   
 `
+
 export const Contact = styled.footer`
     display: flex;
     flex-direction: column;

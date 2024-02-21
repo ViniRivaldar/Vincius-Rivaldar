@@ -206,8 +206,8 @@ function App() {
                 <video src={projeto.video} controls ></video>
                 <h4>{projeto.titulo}</h4><br/>
                 <p>{projeto.descricao}</p><br/>
-                <a href={projeto.urlDoSite}>Site</a><br/>
-                <a href={projeto.urlDoRepositorio}>Repositório</a>
+                <a href={projeto.urlDoSite}target="_blank" rel="noreferrer">Site</a><br/>
+                <a href={projeto.urlDoRepositorio} target="_blank" rel="noreferrer">Repositório</a>
               </div>
             ))}
           </div>

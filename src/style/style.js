@@ -201,17 +201,23 @@ export const Portfolio = styled.section`
         padding: 30px;
         border-radius: 15px;
         background: #E0E0E0;
+        width: 1000px;
     }
 
     .projetos-card{
         padding: 10px;
         background: #ffff;
         border-radius: 5px;
+        width: 50%;
         
     }
+    video{
+        width: 100%;
+    }
     h4{
+        text-align: center;
         color: #024AAC;
-        font-size: 20px
+        font-size: 20px;
     }
     a{
         text-decoration: none;

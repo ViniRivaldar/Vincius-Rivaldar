@@ -66,7 +66,6 @@ function App() {
       distance: '90px',
       origin: 'rigth'
     })
-
     
   },[])
 
@@ -198,15 +197,15 @@ function App() {
         </Certificate>
 
         <Portfolio id="portifolio" >
-          <div className="titulo">
+          <div>
             <h2>Portifólio</h2>
           </div> 
           <div className="projetos">
             {data.map((projeto)=>(
               <div key={projeto._id} className="projetos-card">
                 <video src={projeto.video} controls ></video>
-                <h4>{projeto.titulo}</h4>
-                <p>{projeto.descricao}</p>
+                <h4>{projeto.titulo}</h4><br/>
+                <p>{projeto.descricao}</p><br/>
                 <a href={projeto.urlDoSite}>Site</a><br/>
                 <a href={projeto.urlDoRepositorio}>Repositório</a>
               </div>

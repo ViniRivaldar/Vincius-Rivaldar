@@ -114,7 +114,7 @@ function App() {
         </Links>
 
         <Home id="home" >
-          <Div className="efeito-text">
+          <div className="efeito-text">
           <H3>Olá!</H3>
             <H1>
               Eu sou <br />
@@ -129,7 +129,7 @@ function App() {
               front-end ao back-end.
             </Paragrafo>
             <Button onClick={goToContact}>Contato</Button>
-          </Div>
+          </div>
 
           <div className="efeito-img">
           <Img src={Perfil} alt="Vinicius Rivaldar" />
@@ -180,9 +180,9 @@ function App() {
           <Swiper
           slidesPerView={1}
           pagination={{clickable: true}}
-          navigation
+          navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
           style={{ width: '700px' }}
-          >
+          className="responsivo">
             {imagem.map((item)=>(
               <SwiperSlide key={item.id}>
                 <img 
@@ -206,7 +206,7 @@ function App() {
                 <video src={projeto.video} controls ></video>
                 <h4>{projeto.titulo}</h4><br/>
                 <p>{projeto.descricao}</p><br/>
-                <a href={projeto.urlDoSite}target="_blank" rel="noreferrer">Site</a><br/>
+                <a href={projeto.urlDoSite}target="_blank" rel="noreferrer">Site</a>
                 <a href={projeto.urlDoRepositorio} target="_blank" rel="noreferrer">Repositório</a>
               </div>
             ))}

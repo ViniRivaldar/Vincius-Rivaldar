@@ -12,8 +12,10 @@ export const Links = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    
-
+    @media screen and (max-width: 1165px) {
+        display: none ;
+    }
+   
 
 `
 
@@ -23,19 +25,20 @@ export const Menu = styled.li`
     margin-right: 30px;
     text-decoration: none;
     background: #F0F0F0;
-
 `
 
 export const ContainerLinks = styled.div`
-
     display: flex;
     gap: 15px;
     margin-right: 30px;
+   
+
 `
 
 export const Imagens = styled.img`
 
     width: 30px;
+   
 `
 
 export const Home = styled.header`
@@ -64,6 +67,35 @@ export const Home = styled.header`
     .efeito-img{
         visibility: hidden;
     }
+    @media screen and (max-width: 1165px) {
+        display: flex;
+        flex-direction: column-reverse;
+        img{
+            width: 350px;
+        }
+       .efeito-text{
+            margin-top: 50px;
+       }
+       .efeito-img{
+        margin-top: 0;
+       }
+        h3{
+            text-align: center;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: justify;
+            width: 300px;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
 `
 
 
@@ -75,7 +107,7 @@ export const H3 = styled.h3`
     font-size: 20px;
     line-height: 1;
     margin-bottom: 10px;
-    
+   
 `
 
 export const H1 = styled.h1`
@@ -131,6 +163,27 @@ export const About = styled.section`
     .efeito-img-about{
         visibility: hidden;
     }
+    @media screen and (max-width: 1165px){
+        gap: 20px;
+        img{
+            width: 350px;
+        }
+       .efeito-text{
+            margin-top: 50px;
+       }
+       
+        h3{
+            text-align: center;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: justify;
+            width: 300px;
+        }
+    }
 `
 
 export const H2 = styled.h2`
@@ -153,6 +206,14 @@ export const Tech = styled.section`
    .efeito-img-about{
         visibility: hidden;
     }
+    @media screen and (max-width: 1165px){
+        h2{
+            text-align: center;
+        }
+       img{
+            width: 50px;
+       }
+    }
 `
 
 export const Certificate = styled.section`
@@ -171,6 +232,17 @@ export const Certificate = styled.section`
    }
     .titulo{
     visibility: hidden;
+   }
+   @media screen and (max-width: 1165px){
+        .meu-botao-next,
+        .meu-botao-prev {
+            display: none;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+            width: 350px;
+        }
    }
 `
 
@@ -219,9 +291,21 @@ export const Portfolio = styled.section`
         color: #024AAC;
         font-size: 20px;
     }
+    p{
+        margin-left: 10px;
+    }
     a{
         text-decoration: none;
+        margin-left: 10px;
         
+    }
+    @media screen and (max-width: 1165px){
+        .projetos {
+            width: 350px;
+        }
+        .projetos-card{
+            width: 100%;
+        }
     }
    
 `

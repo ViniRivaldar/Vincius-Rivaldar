@@ -181,7 +181,7 @@ export const About = styled.section`
         }
         p{
             text-align: justify;
-            width: 300px;
+            width: 250px;
         }
     }
 `
@@ -209,10 +209,11 @@ export const Tech = styled.section`
     @media screen and (max-width: 1165px){
         h2{
             text-align: center;
+            font-size: 35px;
         }
-       img{
-            width: 50px;
-       }
+        img{
+            width: 40px;
+        }
     }
 `
 
@@ -238,11 +239,15 @@ export const Certificate = styled.section`
         .meu-botao-prev {
             display: none;
         }
+        h2{
+            font-size: 35px;
+        }
         img{
             display: block;
             margin: 0 auto;
-            width: 350px;
+            width: 270px;
         }
+
    }
 `
 
@@ -300,8 +305,12 @@ export const Portfolio = styled.section`
         
     }
     @media screen and (max-width: 1165px){
+
+        h2{
+            font-size: 35px;
+        }
         .projetos {
-            width: 350px;
+            width: 300px;
         }
         .projetos-card{
             width: 100%;
@@ -340,6 +349,19 @@ export const Contact = styled.footer`
         width: 25px;
         margin-top: 18px;
         margin-right: 10px;
+    }
+
+    @media screen and (max-width: 1165px){
+
+        div{
+
+            margin-left: 30px;
+        }
+
+        p{
+            font-size: 13px;
+        }
+
     }
 `
 

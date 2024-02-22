@@ -5,6 +5,9 @@ import styled from "styled-components";
 export const ContainerItens = styled.div`
     padding: 30px 60px;
     background: #F0F0F0;
+    @media screen and (max-width: 1165px) {
+        overflow-x: hidden;
+    }
     
 `
 
@@ -71,7 +74,7 @@ export const Home = styled.header`
         display: flex;
         flex-direction: column-reverse;
         img{
-            width: 350px;
+            width: 300px;
         }
        .efeito-text{
             margin-top: 50px;
@@ -80,15 +83,16 @@ export const Home = styled.header`
         margin-top: 0;
        }
         h3{
-            text-align: center;
+            text-align: justify;
             
         }
         h1{
-            text-align: center;
+            text-align: justify;
+            font-size: 50px;
         }
         p{
             text-align: justify;
-            width: 300px;
+            width: 250px;
         }
         button{
             display: block;
@@ -166,18 +170,19 @@ export const About = styled.section`
     @media screen and (max-width: 1165px){
         gap: 20px;
         img{
-            width: 350px;
+            width: 300px;
         }
        .efeito-text{
             margin-top: 50px;
        }
        
         h3{
-            text-align: center;
+            text-align: justify;
             
         }
         h1{
             text-align: center;
+            font-size: 40px;
         }
         p{
             text-align: justify;
@@ -190,7 +195,9 @@ export const H2 = styled.h2`
 
     color: #024AAC;
     font-size: 50px;
-
+    @media screen and (max-width: 1165px){
+        font-size: 35px;
+    }
 `
 
 export const Tech = styled.section`
@@ -245,7 +252,7 @@ export const Certificate = styled.section`
         img{
             display: block;
             margin: 0 auto;
-            width: 270px;
+            width: 330px;
         }
 
    }
@@ -310,7 +317,7 @@ export const Portfolio = styled.section`
             font-size: 35px;
         }
         .projetos {
-            width: 300px;
+            width: 360px;
         }
         .projetos-card{
             width: 100%;
